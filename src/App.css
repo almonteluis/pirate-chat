@@ -4,11 +4,35 @@
   padding: 2rem;
 }
 
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.messages-container {
+  margin-bottom: 2rem;
+}
+
 .message {
   border-radius: 5px;
   padding: 0.5em;
+  margin-bottom: 0.5rem;
   --message-color-ai: #d9dede;
   --message-color-user: #f95738;
+  transition: outline 0.2s ease;
+}
+
+.message:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
 }
 
 .message.ai {
@@ -24,11 +48,45 @@
 
 .input-form {
   display: flex;
-  margin-top: 2rem; /* Optional: adds space above the form */
+  margin-top: 2rem;
+  gap: 1rem;
 }
 
 .input-form input[type="text"] {
-  margin-right: 1rem;
   flex-grow: 1;
   line-height: 2;
+  padding: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+
+.input-form input[type="text"]:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.input-form button {
+  padding: 0.5rem 1rem;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.input-form button:hover {
+  background-color: #0052a3;
+}
+
+.input-form button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.input-form button:active {
+  transform: translateY(1px);
 }
